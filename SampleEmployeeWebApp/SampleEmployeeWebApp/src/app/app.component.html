@@ -1,0 +1,24 @@
+<form [formGroup]="form">
+  <div style="display: flex;">
+    <div style="border: 1px solid; width: 176px">Name</div>
+    <div style="border: 1px solid; width: 176px">Employee Type</div>
+    <div style="border: 1px solid; width: 173px">Vacation Days</div>
+    <div style="border: 1px solid;width: 176px">Work Days</div>
+  </div>
+  <div
+    formArrayName="employees"
+    *ngFor="let employee of employees.controls; let i = index"
+  >
+    <div [formGroupName]="i">
+      <input formControlName="name" />
+      <input formControlName="employeeType" />
+      <input formControlName="vacationDays" />
+      <input formControlName="workDays" />
+      <button (click)="updateWork(i)">Save</button>
+        
+      
+    </div>
+
+    <!-- Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }} -->
+  </div>
+</form>
